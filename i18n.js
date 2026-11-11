@@ -1,0 +1,165 @@
+/* Chinese source strings, as in the launcher. All translations stay offline. */
+(() => {
+  'use strict';
+  const requested = (new URLSearchParams(window.location.search).get('lang') || '').replace(/_/g, '-');
+  const locale = /^(en|zh)(-|$)/i.test(requested) ? requested : navigator.language || 'en';
+  const language = /^zh(-|$)/i.test(locale) ? 'zh-CN' : 'en';
+  const translations = {
+    '妖精小姐的生日邀约': "Miss Pink Elf's Birthday Invitation",
+    '返回邀请函': 'Back to the invitation',
+    '真我 · 爱莉希雅': 'Ego · Elysia',
+    '生日邀约进度': 'Birthday invitation progress',
+    '一封邀约': 'Invitation',
+    '生日小聚': 'Celebration',
+    '给你的回信': 'Your letter',
+    '开启八音盒音乐': 'Play the music box',
+    '关闭八音盒音乐': 'Pause the music box',
+    '音乐关': 'Music off',
+    '音乐开': 'Music on',
+    '把美好，': 'Keep the beauty,',
+    '都留在': 'cherish ',
+    '今天': 'today',
+    '。': '.',
+    '有些日子，因为相遇而闪闪发光。': 'Some days shine because we meet.',
+    '比如今天，比如……有你在的这一天。': 'Like today… a day with you here.',
+    '花已经开好了，蛋糕也准备好了。': 'The flowers are in bloom. The cake is ready.',
+    '现在，只差一位最特别的客人。': 'All we need is one very special guest.',
+    '接受这份邀约': 'Accept the invitation',
+    '为你留了一点时间，也藏了一点惊喜。': 'A little time for you, and a little surprise.',
+    '爱莉希雅 · 生日快乐': 'Elysia · Happy birthday',
+    '微笑的爱莉希雅，身旁是粉色气球、蝴蝶和生日蛋糕': 'Elysia smiling beside pink balloons, butterflies and a birthday cake',
+    '11月11日': 'November 11',
+    '爱莉希雅': 'Elysia',
+    '嗨，等你好久啦': "Hi! I've been waiting for you",
+    '让这一刻，': 'Make this moment ',
+    '再美好一点。': 'a little lovelier.',
+    '花、烛光，还有你想说的话。': 'Flowers, candlelight, and words from you.',
+    '一点点布置，靠近今天的惊喜。': "A few little touches, a surprise to discover.",
+    '不用急，今天的时间，都可以慢慢花在美好的事情上。': "Take your time. Today, there's room for all the lovely little things.",
+    '挑选一束花': 'Choose a bouquet',
+    '挑一束花': 'Pick flowers',
+    '点亮生日蜡烛': 'Light the birthday candles',
+    '点一盏烛光': 'Light candles',
+    '写下生日祝福': 'Write a birthday wish',
+    '留一句祝福': 'Leave a wish',
+    '今天的三份心意': 'Three little gifts for today',
+    '一束花': 'Flowers',
+    '一盏烛光': 'Candles',
+    '一句心意': 'A wish',
+    '今天的美好': "Today's joys",
+    '先挑一束喜欢的花': 'Choose your favorite flowers',
+    '让生日烛光亮起来': 'Light the birthday candles',
+    '留一句只属于你的心意': 'Leave a wish from the heart',
+    '拆开她留给你的回信': 'Open her letter to you',
+    '收到祝福的爱莉希雅': 'Elysia receiving your birthday wishes',
+    '两个系着丝带的礼盒': 'Two gift boxes tied with ribbons',
+    '等等，你的礼物': "Wait, there's a gift",
+    '还没有带走呢': 'for you too',
+    '原来，惊喜也有你的一份': "There's a surprise for you, too",
+    '致': 'Dear ',
+    '亲爱的你': 'friend',
+    '：': ',',
+    '明明今天是我的生日，': "It may be my birthday,",
+    '却还是忍不住，想把礼物也送给你。': "but I couldn't resist getting you a gift, too.",
+    '你挑的花、点亮的烛光，还有那句悄悄写下的祝福，': 'The flowers you chose, the candles you lit, the wish you quietly wrote…',
+    '我都好好收到了。连同你愿意停留的这段时光。': "I'll treasure them all, along with the time you chose to spend here.",
+    '所以，答应我一个小小的请求，好吗？': 'So, will you make me one little promise?',
+    '今后的日子里，也要记得为自己留一束花，': 'In the days ahead, save some flowers for yourself,',
+    '为那些微小的快乐，认真地心动一次。': 'and let the smallest joys touch your heart.',
+    '来陪我过生日的你，': 'You came to celebrate with me,',
+    '也应该收到一份礼物呀': 'so you deserve a gift too',
+    '愿所有的美好，都与你不期而遇。': 'May beautiful things find you when you least expect them.',
+    '珍藏这份美好': 'Keep this memory',
+    '再坐一会儿': 'Stay a little longer',
+    '愿美好的故事，永远有你。': 'May every beautiful story include you.',
+    '关于这份邀约': 'About this invitation',
+    '关闭': 'Close',
+    '选择花束': 'Choose a bouquet',
+    '粉色的心动': 'Blushing pink',
+    '纯白的约定': 'A promise in white',
+    '紫色的小秘密': 'A lavender secret',
+    '把温柔，藏进花瓣里。': 'Tenderness in every petal.',
+    '愿每个明天，都闪闪发光。': 'May every tomorrow shine.',
+    '有些喜欢，只说给你听。': 'A little affection, just for you.',
+    '把这束花放好': 'Place this bouquet',
+    '希望她怎么称呼你': 'What should she call you?',
+    '可不填': 'Optional',
+    '比如：舰长': 'For example: Captain',
+    '想对爱莉希雅说的话': 'Your words for Elysia',
+    '生日快乐，爱莉。愿你永远自由、闪耀，被世界温柔以待。': 'Happy birthday, Ellie. Stay free, keep shining, and may the world be kind to you.',
+    '写不出也没关系，你的到来就是祝福。': 'No words? Being here is a gift in itself.',
+    '把心意装进信封': 'Seal your wish',
+    '关闭纪念卡': 'Close the keepsake card',
+    '带有爱莉希雅插画、昵称和祝福的生日纪念卡': 'A birthday keepsake card with Elysia artwork, your name and wish',
+    '把这一刻，': 'Keep this moment',
+    '好好珍藏。': 'close to your heart.',
+    '一张写有你名字的纪念卡，': 'A keepsake card with your name,',
+    '留住今天的花、烛光与相遇。': 'to remember the flowers, candlelight, and time together.',
+    '卡片上的名字': 'Name on your card',
+    '保存纪念卡': 'Save keepsake card',
+    '关闭说明': 'Close the details',
+    '为美好的一天，': 'A little keepsake',
+    '留下一份小小纪念。': 'for a beautiful day.',
+    '这是一份为爱莉希雅准备的同人生日邀约。': 'A fan-made birthday invitation for Elysia.',
+    '角色与官方插画版权归米哈游所有。': 'Character and official artwork © miHoYo.',
+    '互动故事、回信、页面设计与八音盒旋律': 'The interactive story, letter, page design and music-box melody',
+    '为本次邀约原创。愿你喜欢这段相聚的时光。': 'were created for this invitation. We hope you enjoy your stay.',
+    '你的名字和祝福只留在当前页面中。': 'Your name and wish stay on this page.',
+    '它们不会上传，也不会发送给任何人。': 'They are never uploaded or sent to anyone.',
+    '清空当前名字、祝福和进度，重新开始': 'Clear your name, wish and progress, and start again',
+    '重新赴约': 'Start again',
+    '已摆好{flower}，点击更换花束': '{flower} is on the table. Click to change the bouquet.',
+    '烛光已亮起': 'Candles are lit',
+    '生日蜡烛已点亮，点击再许个愿': 'The birthday candles are lit. Click to make another wish.',
+    '心意已珍藏': 'Wish treasured',
+    '生日祝福已珍藏，点击修改': 'Your birthday wish is saved. Click to edit it.',
+    '等等，先别走呀。来陪我过生日的你，也有一份礼物哦♪': "Wait, don't go just yet. You came to celebrate with me, so there's a gift for you too♪",
+    '还有一封只写给你的信，拆开看看吧。': "There's a letter just for you. Open it and see.",
+    '你看，烛光亮起来了。希望你的愿望，也会在某一天悄悄实现。': 'Look, the candles are glowing. May your wishes quietly come true one day, too.',
+    '把喜欢，放进一束花里。': 'A little love, in a bouquet.',
+    '今天的花束，由你来挑选。每一种颜色都很好看呀♪': "Today's flowers are yours to choose. Every color is lovely♪",
+    '有些心意，值得被珍藏。': 'Some words are worth keeping.',
+    '不需要华丽的措辞。是你写的，我就会喜欢。': "No fancy words needed. If they're from you, I'll love them.",
+    '你留下的心意：{wish}': 'Your wish: {wish}',
+    '插画未能载入': 'The artwork could not be loaded',
+    '未找到本地插画': 'The local artwork is missing',
+    '把美好，都留在今天。': "Keep today's beautiful memories.",
+    '致{name}：': 'Dear {name},',
+    '也应该收到一份礼物呀♪': 'so you deserve a gift too♪',
+    '你留给她的话': 'Your words for her',
+    '爱莉希雅 ♡': 'Elysia ♡',
+    '11.11 生日纪念 · 同人邀约 / 插画 © miHoYo': '11.11 Birthday keepsake · Fan invitation / Artwork © miHoYo',
+    '纪念卡暂时没有生成，请关闭后重新打开。': 'Your card could not be created. Please close it and try again.',
+    '{flower}……嗯，眼光很好嘛。我会把它放在最显眼的地方♪': "{flower}… you have lovely taste. I'll put it where everyone can see it♪",
+    '这封信我会好好收着的。下次想起今天，就再拿出来读一遍。': "I'll keep this letter safe, and read it again whenever I think of today.",
+    '正在准备你的纪念卡……': 'Preparing your keepsake card…',
+    '爱莉希雅-生日纪念-2026.11.11.png': 'Elysia-Birthday-2026.11.11.png',
+    '已开始下载，记得把这份美好收藏起来。': 'Your download has started. Keep this lovely memory close.',
+    '保存未完成，请再试一次。': 'The card could not be saved. Please try again.',
+    '音乐暂时没有响起来，再点一次试试吧。': "The music couldn't start. Give it another try.",
+    '音乐未能载入，检查素材文件是否完整后再试。': 'The music could not be loaded. Check the local files and try again.',
+  };
+
+  function t(source, values = {}) {
+    const text = language === 'en' && Object.hasOwn(translations, source) ? translations[source] : source;
+    return text.replace(/\{(\w+)\}/g, (match, key) => Object.hasOwn(values, key) ? String(values[key]) : match);
+  }
+
+  document.documentElement.lang = language;
+  document.title = t(document.title);
+  if (language === 'en') {
+    // Translate text nodes without replacing the SVGs, emphasis, line breaks or IDs.
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    let node;
+    while ((node = walker.nextNode())) {
+      if (node.parentElement.closest('script, style, noscript')) continue;
+      node.nodeValue = node.nodeValue.replace(/^(\s*)([\s\S]*?)(\s*)$/, (_, before, source, after) => before + t(source) + after);
+    }
+    for (const element of document.querySelectorAll('[aria-label], [title], [placeholder], [alt]')) {
+      for (const attribute of ['aria-label', 'title', 'placeholder', 'alt']) {
+        if (element.hasAttribute(attribute)) element.setAttribute(attribute, t(element.getAttribute(attribute)));
+      }
+    }
+  }
+  window.BirthdayI18n = Object.freeze({ language, t });
+})();

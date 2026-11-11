@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fcf7f5">
+  <meta name="color-scheme" content="light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file:; style-src 'self' file: 'unsafe-inline'; img-src 'self' file: data: blob:; media-src 'self' file:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>妖精小姐的生日邀约</title>
+  <!-- 静态托管新增：不收录 + 链接预览。想让搜索引擎收录，删掉 robots 这一行即可。 -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="一封写给爱莉希雅的同人生日邀约：挑一束花、点亮烛光、留下一句祝福，再收下她的回信与纪念卡。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="妖精小姐的生日邀约 · 11.11">
+  <meta property="og:description" content="把美好，都留在今天。">
+  <!-- 上线拿到域名后，建议把下面这行换成绝对地址：https://你的域名/assets/elysia.webp -->
+  <meta property="og:image" content="assets/elysia.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="assets/emblem.svg?v=ego-refresh-1">
+  <link rel="stylesheet" href="style.css?v=ego-refresh-1">
+  <link rel="stylesheet" href="elysia.css?v=table-fade-type-2">
+  <script src="i18n.js" defer></script>
+  <script src="assets/art-data.js" defer></script>
+  <script src="assets/ego-signet-paths.js?v=ego-refresh-1" defer></script>
+  <script src="elysia-motifs.js?v=ego-refresh-1" defer></script>
+  <script src="ceremony.js?v=ego-refresh-1" defer></script>
+  <script src="app.js?v=ego-refresh-1" defer></script>
+</head>
+<body data-view="invitation">
+  <svg class="symbol-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12H20M14 6L20 12L14 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-crystal" viewBox="0 0 24 32"><path d="M12 1 21 12 12 31 3 12Z" fill="currentColor" fill-opacity=".1" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="m12 1 3.2 11L12 31 8.8 12Zm-9 11h18" fill="none" stroke="currentColor" stroke-width=".75" opacity=".7"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="M5 12L10 17L20 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-envelope" viewBox="0 0 28 24"><rect x="2" y="4" width="24" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M3 5L14 14L25 5M3 20L10 13M25 20L18 13" fill="none" stroke="currentColor" stroke-width="1.3"/></symbol>
+    </defs>
+  </svg>
+  <div class="elysia-aura" aria-hidden="true"></div>
+  <canvas id="elysia-light" class="elysia-light" aria-hidden="true"></canvas>
+  <header class="site-header">
+    <a class="brand" href="#invitation" aria-label="返回邀请函">
+      <span class="brand-mark"><svg><use href="#i-ego"/></svg></span>
+      <span class="brand-type">ELYSIA<small>真我 · 爱莉希雅</small></span>
+    </a>
+    <nav class="chapter-nav" aria-label="生日邀约进度">
+      <button class="chapter is-active" data-view="invitation" aria-current="step"><span>01</span>一封邀约</button>
+      <i aria-hidden="true"></i>
+      <button class="chapter" data-view="room" disabled><span>02</span>生日小聚</button>
+      <i aria-hidden="true"></i>
+      <button class="chapter" data-view="letter" disabled><span>03</span>给你的回信</button>
+    </nav>
+    <button class="sound-toggle" id="sound-toggle" aria-pressed="false" aria-label="开启八音盒音乐" title="开启八音盒音乐">
+      <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sound-label">音乐关</span>
+    </button>
+  </header>
+
+  <main id="main">
+    <section class="view invitation-view is-active" id="invitation" aria-labelledby="invitation-title">
+      <div class="invitation-copy">
+        <div class="eyebrow"><span></span> NOVEMBER 11 · A DAY WITH ELYSIA</div>
+        <p class="occasion">妖精小姐的生日邀约</p>
+        <h1 id="invitation-title" tabindex="-1">把美好，<br>都留在<span class="title-accent">今天<svg><use href="#icon-crystal"/></svg></span>。</h1>
+        <p class="intro">有些日子，因为相遇而闪闪发光。<br>比如今天，比如……有你在的这一天。</p>
+        <div class="invitation-note"><span class="note-line"></span><p>花已经开好了，蛋糕也准备好了。<br>现在，只差一位最特别的客人。<span class="note-heart">♡</span></p></div>
+        <button class="button primary" id="accept-invitation"><span>接受这份邀约</span><svg><use href="#icon-arrow"/></svg></button>
+        <p class="cta-caption">为你留了一点时间，也藏了一点惊喜。</p>
+        <div class="date-block"><span class="date-number">11<span> / </span>11</span><div><span>爱莉希雅 · 生日快乐</span><small>HAPPY BIRTHDAY, DEAR ELYSIA</small></div></div>
+      </div>
+      <div class="portrait-composition">
+        <span class="orbit orbit-one" aria-hidden="true"></span><span class="orbit orbit-two" aria-hidden="true"></span>
+        <div class="portrait-frame"><img class="hero-portrait" src="assets/elysia.webp" alt="微笑的爱莉希雅，身旁是粉色气球、蝴蝶和生日蛋糕" width="1400" height="1457" fetchpriority="high"></div>
+        <div class="portrait-date" aria-label="11月11日"><span>November</span><strong>11</strong><small>FOR YOU</small></div>
+        <div class="invitation-stamp" aria-hidden="true"><svg class="scene-signet"><use href="#i-ego"/></svg><span>II · EGO</span></div>
+        <div class="portrait-quote"><span class="quote-line"></span><div><span class="speaker">爱莉希雅</span><p>嗨，等你好久啦<span>♪</span></p></div><svg><use href="#icon-crystal"/></svg></div>
+        <span class="portrait-caption">All the beautiful things, just for today.</span>
+        <svg class="free-spark spark-one" aria-hidden="true"><use href="#icon-crystal"/></svg><svg class="free-spark spark-two" aria-hidden="true"><use href="#icon-crystal"/></svg>
+      </div>
+      <div class="chapter-footnote"><span>ONE DAY. ONE INVITATION. ONE BEAUTIFUL MEMORY.</span></div>
+    </section>
+
+    <section class="view room-view" id="room" aria-labelledby="room-title" hidden>
+      <div class="room-heading"><div><p class="eyebrow">A LITTLE BIRTHDAY RENDEZVOUS</p><h1 id="room-title" tabindex="-1">让这一刻，<em>再美好一点。</em></h1></div><p>花、烛光，还有你想说的话。<br>一点点布置，靠近今天的惊喜。</p></div>
+      <div class="birthday-room" id="birthday-room">
+        <div class="room-arch" aria-hidden="true"><img src="assets/elysia.webp" alt="" width="1400" height="1457"><span>Happy<br><em>Birthday</em></span></div>
+        <div class="room-foreground">
+        <img class="room-curtain curtain-left" src="assets/curtain.png" alt="" aria-hidden="true"><img class="room-curtain curtain-right" src="assets/curtain.png" alt="" aria-hidden="true">
+        <div class="room-wall-copy"><span>THE MOST BEAUTIFUL<br>GIFT IS YOUR PRESENCE.</span><svg><use href="#i-ego"/></svg></div>
+        <div class="room-dialogue" id="room-dialogue"><span>爱莉希雅 <i>♪</i></span><p id="room-speech">不用急，今天的时间，都可以慢慢花在美好的事情上。</p></div>
+        <div class="table-shadow" aria-hidden="true"></div><div class="birthday-table" aria-hidden="true"></div>
+        <button class="room-object flowers-object" id="flowers-object" data-item="flowers" aria-label="挑选一束花" aria-pressed="false">
+          <svg class="bouquet-art" viewBox="0 0 240 240" aria-hidden="true">
+            <defs><linearGradient id="vase" x1="0" x2="1"><stop stop-color="#d1afaf"/><stop offset=".45" stop-color="#faf0e6"/><stop offset="1" stop-color="#cfaaa8"/></linearGradient><radialGradient id="petal"><stop stop-color="#bd6689"/><stop offset=".3" stop-color="#eba4b8"/><stop offset="1" stop-color="#ffe6e6"/></radialGradient></defs>
+            <g stroke="#929b7c" fill="none" stroke-width="3"><path d="M115 179Q84 93 69 64M121 184Q120 83 137 44M122 182Q157 109 174 94M119 180Q87 116 42 108M120 181Q124 107 99 91M123 177Q158 114 189 134"/></g>
+            <g fill="#a3aa8c"><path d="M87 133Q52 91 46 124Q60 146 87 133M144 135Q142 97 164 101Q179 120 144 135M117 111Q87 101 99 128Q113 136 117 111M157 155Q182 128 194 148Q175 169 157 155"/></g>
+            <g class="flower-heads" fill="url(#petal)" stroke="#d38fa3" stroke-width=".6"><path d="M68 40C46 21 32 53 49 60C20 68 48 100 61 81C72 109 101 90 87 72C115 62 92 35 77 47C77 26 60 27 68 40Z"/><path d="M137 25C113 8 103 40 121 45C96 61 127 83 136 64C156 89 176 62 158 50C182 34 154 14 145 33C145 13 130 17 137 25Z"/><path d="M176 77C153 60 143 91 159 99C133 111 159 135 175 118C193 139 218 113 197 101C222 84 194 64 184 85C184 68 171 67 176 77Z"/><path d="M98 80C81 65 69 88 83 96C62 109 87 128 98 112C113 134 134 110 117 98C137 86 115 65 106 87C108 70 94 68 98 80Z"/><path d="M41 96C28 84 17 103 27 109C12 120 29 136 40 124C54 140 72 120 58 111C73 99 52 84 47 103Z"/></g>
+            <g fill="#e7b469"><circle cx="68" cy="64" r="5"/><circle cx="138" cy="46" r="4.5"/><circle cx="177" cy="101" r="4.5"/><circle cx="99" cy="99" r="4"/><circle cx="41" cy="112" r="3"/></g>
+            <path d="M93 162Q87 153 97 151H145Q154 151 148 163L153 218Q150 232 120 232Q91 232 88 218Z" fill="url(#vase)" stroke="#b8948f" stroke-width="1"/><ellipse cx="121" cy="157" rx="25" ry="5" fill="#e7d9c9"/><path d="M99 172L96 214M108 174L106 221M120 174V223M132 174L135 221M141 172L145 214" fill="none" stroke="#fff8eb" opacity=".7"/>
+          </svg>
+          <span class="object-tag"><span class="object-index">01</span><span class="object-name">挑一束花</span><span class="object-plus">+</span></span>
+        </button>
+        <button class="room-object cake-object" id="cake-object" data-item="candles" aria-label="点亮生日蜡烛" aria-pressed="false">
+          <svg class="cake-art" viewBox="0 0 320 250" aria-hidden="true">
+            <defs><linearGradient id="cake-side"><stop stop-color="#d18b9c"/><stop offset=".4" stop-color="#f5bfca"/><stop offset="1" stop-color="#d999ac"/></linearGradient><linearGradient id="icing"><stop stop-color="#e9d1c2"/><stop offset=".5" stop-color="#fff8e9"/><stop offset="1" stop-color="#dfc3b7"/></linearGradient><radialGradient id="flame"><stop stop-color="#fffce5"/><stop offset=".55" stop-color="#ffd582"/><stop offset="1" stop-color="#f5a56a"/></radialGradient></defs>
+            <ellipse cx="160" cy="224" rx="143" ry="22" fill="#e7d7cd"/><ellipse cx="160" cy="218" rx="139" ry="21" fill="#fff5ed" stroke="#cfa997"/><path d="M51 122V199C51 224 269 224 269 199V122Z" fill="url(#cake-side)"/><path d="M52 162Q161 191 269 162V174Q161 203 52 174Z" fill="#fce6dc"/>
+            <path d="M50 121C50 80 270 80 270 121V148Q264 160 258 149V134Q245 137 236 138V161Q229 174 221 162V141Q206 146 194 146V159Q186 171 178 159V148H153V167Q144 181 137 167V148Q124 148 112 145V157Q104 170 96 157V143Q82 141 70 135V150Q59 161 51 147Z" fill="url(#icing)"/>
+            <ellipse cx="160" cy="119" rx="110" ry="31" fill="#fff5e9" stroke="#e6ccc2"/>
+            <g fill="#de7a8d" stroke="#be657e" stroke-width=".6"><path d="M76 109Q63 84 81 81Q102 88 87 110Z"/><path d="M230 110Q217 86 236 82Q253 90 240 110Z"/><path d="M126 131Q112 107 132 101Q148 110 135 132Z"/><path d="M194 132Q180 108 200 103Q217 113 204 133Z"/></g>
+            <g fill="#98a07a"><path d="M69 86L77 77L89 82L81 88Z"/><path d="M225 86L235 77L245 84L236 90Z"/><path d="M119 108L131 100L141 107L131 113Z"/><path d="M186 109L198 101L209 108L198 114Z"/></g>
+            <g stroke="#d0959a" stroke-width="1"><rect x="111" y="63" width="9" height="43" rx="2" fill="#f8dce3"/><rect x="156" y="43" width="9" height="58" rx="2" fill="#e9d9f0"/><rect x="202" y="63" width="9" height="44" rx="2" fill="#f8dce3"/></g>
+            <g stroke="#fff5ed" stroke-width="3"><path d="M112 73L119 78M112 87L119 92M157 57L164 62M157 72L164 77M157 87L164 92M203 73L210 78M203 87L210 92"/></g>
+            <g stroke="#90696c" stroke-width="1.5"><path d="M116 57V63M161 37V43M207 57V63"/></g>
+            <g class="candle-flames" fill="url(#flame)"><path d="M116 58C100 50 112 43 116 32C128 44 129 53 116 58Z"/><path d="M161 37C146 30 156 20 161 9C173 22 174 33 161 37Z"/><path d="M207 58C191 50 203 43 207 32C219 44 220 53 207 58Z"/></g>
+            <path d="M131 191Q158 205 190 191" fill="none" stroke="#fff5ed" stroke-width="2"/><text x="160" y="198" fill="#ac667e" font-family="Georgia,serif" font-style="italic" text-anchor="middle" font-size="15">Elysia</text>
+          </svg>
+          <span class="object-tag"><span class="object-index">02</span><span class="object-name">点一盏烛光</span><span class="object-plus">+</span></span>
+        </button>
+        <button class="room-object envelope-object" id="envelope-object" data-item="wish" aria-label="写下生日祝福" aria-pressed="false">
+          <span class="envelope-art" aria-hidden="true"><span class="envelope-paper">To Elysia<br><i>with love ♡</i></span><span class="envelope-body"></span><span class="wax-seal"><svg class="scene-signet"><use href="#i-ego"/></svg></span></span>
+          <span class="object-tag"><span class="object-index">03</span><span class="object-name">留一句祝福</span><span class="object-plus">+</span></span>
+        </button>
+        <svg class="room-spark rs-one" aria-hidden="true"><use href="#icon-crystal"/></svg><svg class="room-spark rs-two" aria-hidden="true"><use href="#icon-crystal"/></svg>
+        </div>
+      </div>
+      <div class="room-bottom">
+        <div class="ritual-progress">
+          <div class="ritual-steps" id="progress-petals" role="group" aria-label="今天的三份心意">
+            <button class="ritual-step" data-ritual="flowers" aria-pressed="false"><span class="ritual-step-status">01</span><span>一束花</span></button>
+            <button class="ritual-step" data-ritual="candles" aria-pressed="false"><span class="ritual-step-status">02</span><span>一盏烛光</span></button>
+            <button class="ritual-step" data-ritual="wish" aria-pressed="false"><span class="ritual-step-status">03</span><span>一句心意</span></button>
+          </div>
+          <p id="progress-text" aria-live="polite">今天的美好 <strong>0 / 3</strong></p>
+        </div>
+        <button class="button primary letter-trigger" id="open-letter"><span class="letter-button-mark" aria-hidden="true"><svg><use href="#i-ego"/></svg></span><span id="letter-button-label">先挑一束喜欢的花</span><svg class="letter-button-arrow"><use href="#icon-arrow"/></svg></button>
+      </div>
+    </section>
+
+    <section class="view letter-view" id="letter" aria-labelledby="letter-title" hidden>
+      <div class="letter-art-panel"><div class="letter-art-arch"><img src="assets/elysia.webp" alt="收到祝福的爱莉希雅" width="1400" height="1457"></div><span class="letter-art-inscription">To the beautiful you.</span><div class="gift-caption"><img src="assets/gifts.png" alt="两个系着丝带的礼盒"><p>等等，你的礼物<br>还没有带走呢<span>♪</span></p></div></div>
+      <article class="letter-paper"><div class="letter-paper-top"><svg class="scene-signet"><use href="#i-ego"/></svg><span>A LETTER, JUST FOR YOU</span><span>11 / 11</span></div><p class="letter-kicker">原来，惊喜也有你的一份</p><h1 id="letter-title" tabindex="-1">致<span id="letter-recipient">亲爱的你</span>：</h1><div class="letter-body"><p>明明今天是我的生日，<br>却还是忍不住，想把礼物也送给你。</p><p>你挑的花、点亮的烛光，还有那句悄悄写下的祝福，<br class="desktop-break">我都好好收到了。连同你愿意停留的这段时光。</p><p>所以，答应我一个小小的请求，好吗？<br>今后的日子里，也要记得为自己留一束花，<br>为那些微小的快乐，认真地心动一次。</p><p class="letter-emphasis">来陪我过生日的你，<br>也应该收到一份礼物呀<span>♪</span></p></div><div class="letter-signature"><span>愿所有的美好，都与你不期而遇。</span><strong>爱莉希雅 <i>♡</i></strong><small>WITH LOVE, ELYSIA · 2026.11.11</small></div><div class="saved-wish" id="saved-wish" hidden><svg><use href="#icon-envelope"/></svg><span id="saved-wish-text"></span></div><div class="letter-actions"><button class="button primary" id="make-card"><span>珍藏这份美好</span><svg><use href="#icon-arrow"/></svg></button><button class="text-button" id="back-to-room">再坐一会儿</button></div></article>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>ELYSIA <i>✧</i> 2026.11.11</span><span>愿美好的故事，永远有你。<span class="footer-heart">♡</span></span><button class="text-button credits-trigger" id="credits-trigger">关于这份邀约</button></footer>
+  <audio id="birthday-music" src="assets/music-box.wav" loop preload="none"></audio>
+  <div class="toast" id="toast" role="status"></div>
+
+  <dialog class="activity-dialog" id="ritual-dialog" data-ritual="flowers" aria-labelledby="ritual-title">
+    <div class="dialog-signet" aria-hidden="true"><svg><use href="#i-ego"/></svg></div>
+    <button class="dialog-close" id="close-ritual" aria-label="关闭">×</button><p class="eyebrow" id="ritual-kicker"></p><h2 id="ritual-title"></h2><p class="dialog-description" id="ritual-description"></p>
+    <div id="flowers-panel" hidden><div class="flower-choices" role="group" aria-label="选择花束"><button class="flower-choice is-selected" data-flower="pink" aria-pressed="true"><span class="flower-swatch pink"><svg><use href="#i-ego"/></svg></span><strong>粉色的心动</strong><small>把温柔，藏进花瓣里。</small></button><button class="flower-choice" data-flower="white" aria-pressed="false"><span class="flower-swatch white"><svg><use href="#i-ego"/></svg></span><strong>纯白的约定</strong><small>愿每个明天，都闪闪发光。</small></button><button class="flower-choice" data-flower="lavender" aria-pressed="false"><span class="flower-swatch lavender"><svg><use href="#i-ego"/></svg></span><strong>紫色的小秘密</strong><small>有些喜欢，只说给你听。</small></button></div><button class="button primary dialog-action" id="place-flowers">把这束花放好 <svg><use href="#icon-arrow"/></svg></button></div>
+    <form id="wish-panel" hidden><label class="field-label" for="guest-name">希望她怎么称呼你 <span>可不填</span></label><input id="guest-name" name="guest-name" maxlength="16" placeholder="比如：舰长" autocomplete="off"><label class="field-label" for="birthday-wish">想对爱莉希雅说的话</label><textarea id="birthday-wish" name="birthday-wish" maxlength="100" rows="3" placeholder="生日快乐，爱莉。愿你永远自由、闪耀，被世界温柔以待。"></textarea><div class="wish-helper"><span>写不出也没关系，你的到来就是祝福。</span><span id="wish-count">0 / 100</span></div><button class="button primary dialog-action" type="submit">把心意装进信封 <svg><use href="#icon-envelope"/></svg></button></form>
+  </dialog>
+
+  <dialog class="card-dialog" id="card-dialog" aria-labelledby="card-dialog-title"><button class="dialog-close" id="close-card" aria-label="关闭纪念卡">×</button><div class="card-preview"><canvas id="keepsake-canvas" width="1200" height="1680" role="img" aria-label="带有爱莉希雅插画、昵称和祝福的生日纪念卡"></canvas></div><div class="card-details"><p class="eyebrow">A BEAUTIFUL MEMORY</p><h2 id="card-dialog-title">把这一刻，<br>好好珍藏。</h2><p>一张写有你名字的纪念卡，<br>留住今天的花、烛光与相遇。</p><label class="field-label" for="card-name">卡片上的名字</label><input id="card-name" maxlength="16" placeholder="亲爱的你" autocomplete="off"><button class="button primary" id="download-card">保存纪念卡 <svg><use href="#icon-arrow"/></svg></button><small class="card-size">PNG · 1200 × 1680</small><p class="card-status" id="card-status" role="status"></p><span class="card-signoff">Until we meet again. ♡</span></div></dialog>
+
+  <dialog class="credits-dialog" id="credits-dialog" aria-labelledby="credits-title"><button class="dialog-close" id="close-credits" aria-label="关闭说明">×</button><svg class="credits-flower"><use href="#i-ego"/></svg><p class="eyebrow">MADE WITH LOVE</p><h2 id="credits-title">为美好的一天，<br>留下一份小小纪念。</h2><p>这是一份为爱莉希雅准备的同人生日邀约。<br>角色与官方插画版权归米哈游所有。</p><p>互动故事、回信、页面设计与八音盒旋律<br>为本次邀约原创。愿你喜欢这段相聚的时光。</p><small>你的名字和祝福只留在当前页面中。<br>它们不会上传，也不会发送给任何人。</small><button class="text-button" id="restart-experience" title="清空当前名字、祝福和进度，重新开始">重新赴约</button></dialog>
+  <noscript><div class="noscript-message">请开启浏览器 JavaScript，即可拆开这份生日邀约。<br>Please enable JavaScript to open this birthday invitation.</div></noscript>
+</body>
+</html>

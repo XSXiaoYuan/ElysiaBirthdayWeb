@@ -1,0 +1,473 @@
+/* The accepted Signet of Ego, pearl light, and a continuous birthday visit. */
+:root {
+  --paper:#fcf8fa;
+  --ink:#634b65;
+  --muted:#99849c;
+  --rose:#b77fa8;
+  --rose-deep:#95678f;
+  --line:#e7d7e5;
+  --shadow:0 18px 60px #85639814;
+  --copy-size:16px;
+  --ui-size:15px;
+  --note-size:13px;
+  --meta-size:12px;
+  --fine-size:11px;
+}
+body {
+  background:radial-gradient(ellipse at 83% 9%,#f3e5f2 0,transparent 42%),
+    radial-gradient(ellipse at 7% 70%,#f1ecfa 0,transparent 48%),#fcf8fa;
+}
+html {scrollbar-gutter:stable;}
+.svg-library {position:absolute;width:0;height:0;overflow:hidden;pointer-events:none;}
+.elysia-aura {
+  position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;
+  background:radial-gradient(ellipse at 72% 26%,#dce9fa35,transparent 42%);
+}
+.elysia-aura::before {
+  content:"";position:absolute;left:37%;top:-28%;width:68%;height:105%;
+  background:linear-gradient(115deg,transparent 24%,#ffffff65 45%,#e2d6f72b 53%,transparent 69%);
+  transform:rotate(-16deg);border-radius:50%;
+}
+.elysia-light {position:fixed;inset:0;width:100%;height:100%;z-index:8;pointer-events:none;}
+.view {animation:none;}
+.site-header {view-transition-name:invitation-header;}
+.site-footer {view-transition-name:invitation-footer;}
+.brand-mark {
+  background:linear-gradient(135deg,#fffafd,#f0e8f6);
+  border-color:#c9adcb;outline-color:#e6d6e9;color:#a476a5;
+}
+.brand-mark svg {width:31px;height:31px;}
+.brand-type {color:#77546e;}
+.brand-type small {color:#a28aa1;letter-spacing:2.1px;}
+.chapter-nav>i {background:linear-gradient(90deg,transparent,#dbcbdc,transparent);}
+.chapter.is-active {color:#996d9e;}
+.chapter.is-active::after {width:19px;height:1px;border-radius:0;background:#b992bd;}
+.sound-toggle {border-color:#e3d5e6;background:#fffbfd9c;}
+.occasion {color:#aa7b9e;}
+.invitation-copy h1 {color:#69506a;}
+.title-accent {color:#ad78a0;}
+.title-accent::after {border-color:#cfafd1;}
+.title-accent svg,.free-spark,.portrait-quote>svg {color:#b09ace;}
+.button.primary {
+  background:linear-gradient(115deg,#bc84a9,#a782b2);
+  border-color:#b383ac;box-shadow:0 8px 26px #9d709a20;
+}
+.button.primary:hover:enabled {
+  background:linear-gradient(115deg,#b77ba3,#9e78ab);
+  border-color:#a474a0;box-shadow:0 12px 30px #97668d29;
+}
+.button.primary:disabled {background:#e7dfe7;border-color:#e2d6e3;color:#ac95ab;box-shadow:none;}
+.portrait-frame {
+  background:#f4deee;border-color:#fffbfd;outline-color:#d8bbd5;
+  box-shadow:0 24px 65px #aa7c9f1d,0 4px 13px #a979a810;
+}
+.hero-portrait {
+  transform:scale(1.035) translate(var(--portrait-x,0px),var(--portrait-y,0px));
+  transition:transform .8s cubic-bezier(.2,.7,.2,1);
+}
+.orbit-one {border-color:#ceb8dd9c;}
+.orbit-two {border-color:#e5c9e08f;}
+.portrait-date {background:#fffbf7f2;border-color:#dcc4d3;color:#ac859f;}
+.portrait-quote {
+  background:linear-gradient(115deg,#fffafbf0,#faf5fff0);
+  border-color:#ffffffd9;box-shadow:0 14px 45px #95698b18;
+}
+.portrait-quote p {color:#936c8d;}
+.invitation-stamp {
+  width:84px;height:84px;transform:none;color:#aa7aaa;
+  background:radial-gradient(circle at 38% 25%,#fffdfd,#f5eaf7);
+  border-color:#c9a6c9;outline-color:#fcf8fa;
+  box-shadow:0 6px 22px #946b9712;
+}
+.invitation-stamp::before {content:"";position:absolute;inset:6px;border:1px solid #e5d0e5;border-radius:50%;pointer-events:none;}
+.invitation-stamp svg {width:43px;height:43px;}
+.invitation-stamp span {font-size:var(--fine-size);letter-spacing:1.3px;position:relative;margin-top:3px;}
+.chapter-footnote {border-color:#e7dbe6;}
+
+/* Only the currently visible portrait and seal receive a shared transition name. */
+.view.is-active .portrait-frame,
+.view.is-active .room-arch,
+.view.is-active .letter-art-arch {view-transition-name:elysia-portrait;}
+.view.is-active .scene-signet {view-transition-name:ego-seal;}
+.view.is-active .room-foreground {view-transition-name:birthday-foreground;}
+::view-transition-group(*) {animation-duration:.9s;animation-timing-function:cubic-bezier(.22,.8,.25,1);}
+::view-transition-group(ego-seal) {animation-duration:.94s;z-index:4;}
+::view-transition-group(elysia-portrait) {z-index:2;}
+/* Keep the table above the moving portrait in both snapshots and the final scene. */
+::view-transition-group(birthday-foreground) {z-index:3;}
+::view-transition-new(birthday-foreground) {animation:birthday-foreground-in .68s .18s cubic-bezier(.22,.7,.2,1) both;mix-blend-mode:normal;}
+::view-transition-old(birthday-foreground) {animation:birthday-foreground-out .48s ease both;mix-blend-mode:normal;}
+::view-transition-group(invitation-header) {animation-duration:0s;z-index:5;}
+::view-transition-old(invitation-header) {animation:none;opacity:0;}
+::view-transition-new(invitation-header) {animation:none;opacity:1;}
+::view-transition-old(root) {animation:birthday-page-out .22s ease-in both;}
+::view-transition-new(root) {animation:birthday-page-in .5s .08s ease-out both;}
+::view-transition-image-pair(elysia-portrait),
+::view-transition-image-pair(ego-seal) {isolation:isolate;}
+::view-transition-old(elysia-portrait),::view-transition-new(elysia-portrait),
+::view-transition-old(ego-seal),::view-transition-new(ego-seal) {mix-blend-mode:normal;}
+@keyframes birthday-page-out {to {opacity:0;}}
+@keyframes birthday-page-in {from {opacity:0;}to {opacity:1;}}
+@keyframes birthday-foreground-in {from {opacity:0;}to {opacity:1;}}
+@keyframes birthday-foreground-out {from {opacity:1;}to {opacity:0;}}
+
+.room-heading h1 {color:#72566f;}
+.room-heading h1 em {color:#ae7fa5;}
+.birthday-room {
+  border-color:#dfc9dd;
+  background:radial-gradient(ellipse at 58% 15%,#e8e5fc95,transparent 49%),
+    radial-gradient(ellipse at 51% 90%,#f5dae88f,transparent 54%),
+    repeating-linear-gradient(90deg,#fcf5f6 0,#fcf5f6 46px,#f2e6ef 47px,#f2e6ef 49px,#fcf5f6 50px,#fcf5f6 96px);
+  box-shadow:0 15px 50px #98729415;
+}
+.birthday-room::after {
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0;
+  background:radial-gradient(ellipse at 51% 74%,#ffefde6b, #ebd9f526 31%,transparent 65%);
+  transition:opacity 1.1s ease;
+}
+.birthday-room[data-complete="true"]::after {opacity:1;}
+.room-foreground {position:absolute;inset:0;z-index:2;isolation:isolate;border-radius:inherit;overflow:hidden;pointer-events:none;}
+.room-foreground>.room-object {pointer-events:auto;}
+.room-arch {border-color:#fffafd;outline-color:#d6b9d3;box-shadow:0 12px 40px #ad82a421;}
+.room-curtain {filter:saturate(.43) hue-rotate(329deg);opacity:.43;}
+.room-wall-copy {color:#b498b5;}
+.room-wall-copy>svg {width:37px;height:37px;color:#b08cba;}
+.room-dialogue>span {color:#a5759d;}
+.room-dialogue p {color:#916982;}
+.birthday-table {
+  border-color:#d9bec8;
+  background:linear-gradient(#fff6ed 0 9%,#f8e6e8 20%,#e7c7d3 57%,#dcb4c9 60%,#c9a4ba 63%,#e0bfd0 67%);
+}
+.object-tag {
+  background:#fffaf9f2;border-color:#dfc8dc;color:#997393;
+  box-shadow:0 4px 15px #8965860d;transition:background .3s,border-color .3s,box-shadow .3s;
+}
+.room-object.is-next .object-tag {border-color:#bb91b6;box-shadow:0 0 0 3px #d3b1d320,0 5px 20px #a06d9718;}
+.room-object.is-complete .object-tag {border-color:#cfafd0;background:#faf2fb;}
+.room-object.is-complete .object-plus {background:#ad83af;border-color:#ad83af;}
+.room-object.is-complete::before {content:none;}
+.room-spark {color:#c3a4d0;width:20px;height:33px;}
+.room-spark.rs-two {width:13px;height:24px;}
+.wax-seal {
+  width:44px;height:44px;left:77px;border-color:#d1a6cc;outline-color:#a777a3;
+  background:radial-gradient(circle at 35% 22%,#d0a0c8,#ad78a4 76%);
+  color:#fff0fb;box-shadow:0 3px 7px #8c5c872d,inset 0 1px 2px #f0cce0;
+}
+.wax-seal svg {width:31px;height:31px;}
+.envelope-paper {transition:transform .75s cubic-bezier(.2,.7,.2,1);background:#fffafa;color:#ad7b9f;}
+.envelope-object.is-complete .envelope-paper {transform:translateY(12px) rotate(0deg);}
+.envelope-object.is-complete .wax-seal {box-shadow:0 2px 8px #93618f33,0 0 22px #d6aed836;}
+.flowers-object.is-complete .flower-heads {filter:drop-shadow(0 2px 5px #d69ec530);}
+.candle-flames {filter:drop-shadow(0 0 7px #ffdda1);}
+.candle-flames path {transform-box:fill-box;transform-origin:50% 100%;}
+.cake-object.is-complete .candle-flames path {animation:birthday-candle-breathe 2.6s ease-in-out infinite alternate;}
+.cake-object.is-complete .candle-flames path:nth-child(2) {animation-delay:-1.3s;animation-duration:3.1s;}
+.cake-object.is-complete .candle-flames path:nth-child(3) {animation-delay:-.7s;animation-duration:2.3s;}
+@keyframes birthday-candle-breathe {from {transform:scale(.98,1);opacity:.9;}to {transform:scale(1.03,.95);opacity:1;}}
+
+.room-bottom {align-items:center;gap:25px;}
+.ritual-progress {flex-direction:column;align-items:flex-start;gap:7px;}
+.ritual-steps {display:flex;align-items:center;gap:7px;}
+.ritual-step {
+  display:flex;align-items:center;gap:8px;padding:10px 13px;min-height:44px;
+  background:#fffafc8c;border:1px solid #e5d8e6;border-radius:6px;
+  color:#927b90;font-size:var(--note-size);line-height:1.6;
+  transition:background .25s,color .25s,border-color .25s;
+}
+.ritual-step-status {min-width:16px;font:italic 12px/1.6 Georgia,serif;color:#9f86a2;}
+.ritual-step.is-next {border-color:#caa9ce;color:#936a95;background:#fbf5fd;}
+.ritual-step.is-complete {border-color:#d9c0dc;color:#98709a;background:#f4ebf7;}
+.ritual-step.is-complete .ritual-step-status {font-style:normal;color:#a577a6;}
+.ritual-step:hover {border-color:#b68bb7;color:#90618f;}
+.ritual-progress p {font-size:var(--note-size);color:#957b91;letter-spacing:.6px;padding-left:2px;}
+.ritual-progress strong {color:#956e95;font-size:14px;}
+.letter-trigger {
+  min-width:326px;min-height:64px;gap:15px;padding:12px 21px;
+  font-size:var(--ui-size);letter-spacing:.4px;justify-content:flex-start;text-align:left;
+  border-radius:7px;transition:background .5s,box-shadow .5s,transform .2s;
+}
+.letter-button-mark {
+  display:grid;place-items:center;width:37px;height:37px;flex:none;
+  border:1px solid #ffffff45;border-radius:50%;background:#fff9ff13;
+}
+.letter-button-mark svg {width:28px;height:28px;}
+.letter-button-arrow {margin-left:auto;width:19px!important;height:19px!important;opacity:.8;}
+#letter-button-label {line-height:1.6;}
+.letter-trigger[data-ready="true"] {background:linear-gradient(115deg,#b477a4,#9b7db7);box-shadow:0 8px 30px #b787b334;}
+.letter-trigger[data-ready="true"] .letter-button-mark {background:#ffffff25;border-color:#ffebfb8c;box-shadow:0 0 17px #f8dffa2b;}
+
+.letter-paper {
+  border-color:#e0ccdf;
+  background:linear-gradient(145deg,#fffdf8f0,#fff8fcf5 68%,#f4edfaf2);
+  box-shadow:0 20px 60px #8c68881a,0 2px 5px #b988a508;
+}
+.letter-paper-top {border-color:#eadbe7;color:#ab8aa4;}
+.letter-paper-top svg {width:32px;height:32px;color:#ad85b2;}
+.letter-art-arch {box-shadow:0 17px 50px #a47e9d21;}
+.letter-signature strong {color:#ac7b9d;}
+#letter-recipient {overflow-wrap:anywhere;}
+.saved-wish {padding:16px 17px;background:#f5eef678;border:1px solid #e8dbea;border-radius:5px;}
+.saved-wish>svg {color:#a885b6;}
+.saved-wish>span {overflow-wrap:anywhere;white-space:pre-wrap;}
+dialog {border-color:#decade;background:#fffbfc;box-shadow:0 28px 100px #55436536;}
+dialog::backdrop {background:#51435b52;backdrop-filter:blur(9px);}
+.activity-dialog {
+  padding-top:31px;border-radius:16px;
+  background:radial-gradient(ellipse at 50% 0,#f0e6f780,transparent 50%),#fffbfc;
+}
+.activity-dialog[data-ritual="wish"] {background:linear-gradient(150deg,#fffdf8,#fbf5fd);}
+.dialog-signet {width:48px;height:48px;margin:0 auto 15px;display:grid;place-items:center;color:#ae87b3;}
+.dialog-signet svg {width:44px;height:44px;}
+.dialog-close {background:#eee4f066;color:#a283a5;}
+.dialog-close:hover {background:#e9dbea;}
+.activity-dialog h2,.card-dialog h2,.credits-dialog h2 {color:#8e6588;}
+.flower-choice {border-color:#e6d8e8;border-radius:9px;background:#fffafb;}
+.flower-choice.is-selected {border-color:#bf94bf;background:#f4eaf6;box-shadow:0 0 0 3px #d7b7da21;}
+.flower-swatch {background:radial-gradient(circle at 40% 25%,#fffefd,#f0e5f2);border:1px solid #e5d4e7;}
+.flower-swatch.pink {color:#bd87ad;}
+.flower-swatch.white {color:#b3a28e;background:radial-gradient(circle,#fffdf4,#f6f1e8);}
+.flower-swatch.lavender {color:#a08abb;background:radial-gradient(circle,#fffafd,#eae4f9);}
+.flower-swatch>svg {width:38px;height:38px;}
+.card-preview {border-color:#e0cadf;box-shadow:0 12px 35px #9c769c1a;}
+.credits-flower {width:49px;height:49px;color:#b086b4;}
+
+/* Give reading, actions and small annotations distinct, comfortable sizes. */
+body {font-size:var(--copy-size);line-height:1.75;}
+.brand-type small {font-size:var(--meta-size);letter-spacing:1.4px;}
+.chapter-nav {margin-right:0;}
+.chapter {font-size:14px;}
+.chapter span {font-size:var(--meta-size);}
+.sound-toggle,.sound-label {font-size:var(--note-size);}
+.eyebrow,.invitation-copy>.eyebrow,.room-heading .eyebrow,
+.activity-dialog>.eyebrow,.card-details>.eyebrow {
+  font-size:var(--fine-size);letter-spacing:1.6px;line-height:1.85;color:#97758e;
+}
+.invitation-copy {min-width:0;}
+.invitation-copy>.eyebrow {white-space:normal;gap:10px;}
+.occasion {font-size:15px;letter-spacing:4px;margin-top:22px;}
+.intro {font-size:var(--copy-size);line-height:1.95;color:#836b80;margin-bottom:20px;letter-spacing:.6px;}
+.invitation-note {margin-bottom:24px;}
+.invitation-note p {font-size:14px;line-height:1.95;color:#927b8d;}
+.button:not(.letter-trigger) {font-size:var(--ui-size);min-height:54px;letter-spacing:.6px;padding:0 25px;}
+.cta-caption {font-size:var(--note-size);line-height:1.9;letter-spacing:.4px;color:#987f92;margin-top:12px;}
+.date-block {margin-top:30px;}
+.date-block>div>span {font-size:var(--note-size);letter-spacing:1.2px;}
+.date-block small {font-size:var(--fine-size);line-height:1.8;letter-spacing:.6px;color:#9d8296;}
+.portrait-date small {font-size:var(--fine-size);letter-spacing:1.1px;}
+.speaker {font-size:var(--meta-size);letter-spacing:2px;color:#9d7893;}
+.portrait-quote {padding:18px 22px;}
+.portrait-quote p {font-size:clamp(20px,2vw,24px);line-height:1.6;letter-spacing:1px;}
+.portrait-caption {font-size:14px;letter-spacing:.7px;color:#a17c94;}
+.chapter-footnote {font-size:var(--fine-size);line-height:1.9;letter-spacing:1px;padding-top:22px;gap:24px;}
+.chapter-footnote>span:last-child {font-size:var(--meta-size);letter-spacing:1px;}
+.site-footer {font-size:var(--meta-size);line-height:1.9;letter-spacing:.7px;color:#967c91;padding-top:28px;padding-bottom:25px;}
+.site-footer>span:first-child {font-size:var(--meta-size);letter-spacing:1px;}
+.site-footer>span:nth-child(2) {font-size:var(--meta-size);letter-spacing:.5px;}
+.text-button,.letter-actions .text-button {font-size:var(--note-size);}
+.site-footer .credits-trigger {font-size:var(--meta-size);}
+.room-heading {margin-bottom:28px;}
+.room-heading h1 {font-size:clamp(30px,2.9vw,38px);}
+.room-heading>p {font-size:15px;line-height:1.9;letter-spacing:.4px;color:#92768c;}
+.birthday-room {height:580px;}
+.room-wall-copy>span {font-size:var(--fine-size);line-height:1.9;letter-spacing:1.5px;}
+.room-dialogue {top:114px;width:260px;}
+.room-dialogue>span {font-size:var(--note-size);letter-spacing:1.7px;}
+.room-dialogue p {font-size:20px;line-height:1.8;}
+.object-tag {font-size:14px;min-width:186px;min-height:44px;gap:10px;padding:10px 14px;bottom:-57px;}
+.object-index {font-size:var(--meta-size);}
+.object-plus {width:20px;height:20px;font-size:17px;}
+.room-object.is-complete .object-plus {font-size:var(--meta-size);}
+.room-bottom {margin-top:28px;gap:26px;}
+.ritual-progress {gap:10px;}
+.letter-art-inscription {font-size:17px;}
+.gift-caption p {font-size:20px;}
+.letter-paper {padding:34px 38px;}
+.letter-paper-top {font-size:var(--fine-size);letter-spacing:1.2px;gap:14px;flex-wrap:wrap;}
+.letter-paper-top span:last-child {font-size:var(--note-size);letter-spacing:1.3px;}
+.letter-kicker {font-size:var(--meta-size);line-height:1.9;letter-spacing:1.2px;margin-top:24px;}
+.letter-paper h1 {font-size:30px;line-height:1.65;margin-bottom:20px;}
+.letter-body {font-size:var(--copy-size);line-height:2;letter-spacing:.35px;}
+.letter-body p {margin-bottom:22px;}
+.letter-body .letter-emphasis {font-size:24px;line-height:1.8;margin-top:22px;}
+.letter-signature>span {font-size:14px;line-height:1.9;}
+.letter-signature strong {font-size:27px;margin-top:13px;}
+.letter-signature small {font-size:var(--fine-size);line-height:1.9;letter-spacing:1px;}
+.saved-wish {font-size:var(--note-size);line-height:1.9;}
+.letter-actions {margin-top:28px;gap:20px;flex-wrap:wrap;}
+.activity-dialog {width:min(650px,calc(100% - 36px));}
+.activity-dialog h2,.card-details h2 {font-size:30px;}
+.dialog-description {font-size:14px;line-height:1.95;color:#94788f;}
+.flower-choice {padding:22px 10px 19px;min-width:0;}
+.flower-choice>strong {font-size:15px;line-height:1.7;letter-spacing:.3px;}
+.flower-choice>small {font-size:var(--meta-size);line-height:1.8;color:#9b7c94;max-width:none;}
+.field-label,.card-details .field-label {font-size:14px;line-height:1.8;}
+.field-label span {font-size:var(--meta-size);color:#a0879b;}
+input,textarea,.card-details input {font-size:var(--copy-size);line-height:1.75;padding:12px 14px;}
+input::placeholder,textarea::placeholder {font-size:15px;color:#a28ca0;}
+.wish-helper {font-size:var(--meta-size);line-height:1.85;color:#9a7e94;gap:12px;}
+.card-details>p:not(.eyebrow) {font-size:15px;line-height:1.95;color:#94768c;}
+.card-details .card-status {font-size:var(--note-size)!important;color:#92718d!important;}
+.card-size {font-size:var(--meta-size);letter-spacing:1.2px;}
+.credits-dialog {width:min(530px,calc(100% - 36px));}
+.credits-dialog h2 {font-size:28px;}
+.credits-dialog>p:not(.eyebrow) {font-size:15px;line-height:1.95;color:#92768c;}
+.credits-dialog>small {font-size:var(--note-size);line-height:1.9;color:#9a8093;}
+#restart-experience {font-size:14px;}
+.toast {font-size:14px;line-height:1.8;padding:13px 22px;}
+
+@media(max-width:900px) {
+  .invitation-stamp {width:74px;height:74px;}
+  .invitation-stamp svg {width:36px;height:36px;}
+  .invitation-stamp::before {inset:5px;}
+  .invitation-stamp span {letter-spacing:1px;}
+  .portrait-date {width:78px;height:104px;}
+  .portrait-date>span {font-size:14px;}
+  .portrait-date strong {font-size:37px;}
+  .portrait-quote {padding:16px 15px;gap:12px;}
+  .portrait-quote p {letter-spacing:0;}
+  .room-heading {display:block;}
+  .room-heading>p {margin:10px 0 0;}
+  .room-heading>p br {display:none;}
+  .birthday-room {height:580px;}
+  .room-arch {height:415px;}
+  .room-wall-copy>svg {width:29px;height:29px;}
+  .room-wall-copy {gap:14px;}
+  .room-dialogue {width:28%;}
+  .room-dialogue p {font-size:18px;}
+  .object-tag {min-width:158px;gap:7px;font-size:var(--note-size);padding:9px 10px;bottom:-54px;}
+  .room-bottom {flex-direction:column;align-items:stretch;gap:20px;}
+  .ritual-progress {flex-direction:row;align-items:center;justify-content:space-between;gap:18px;}
+  .ritual-steps {gap:7px;}
+  .ritual-step {padding:10px 11px;gap:6px;}
+  .letter-trigger {min-width:0;width:100%;min-height:64px;gap:15px;padding:12px 20px;}
+  .letter-paper {padding:30px 27px;}
+  .letter-paper-top {gap:11px;}
+  .letter-art-inscription {font-size:16px;}
+  .gift-caption p {font-size:18px;}
+}
+@media(max-width:640px) {
+  :root {--ui-size:14px;}
+  .brand-mark svg {width:24px;height:24px;}
+  .brand-type small {letter-spacing:.7px;}
+  .chapter-nav {gap:8px;}
+  .chapter-nav>i {flex:1;min-width:10px;max-width:26px;}
+  .chapter {font-size:var(--note-size);letter-spacing:0;}
+  .chapter span {font-size:var(--fine-size);margin-right:4px;}
+  .sound-label {font-size:var(--meta-size);}
+  .invitation-copy>.eyebrow {letter-spacing:1.1px;}
+  .occasion {font-size:14px;letter-spacing:3px;margin-top:19px;}
+  .intro {font-size:var(--copy-size);line-height:1.9;letter-spacing:.3px;}
+  .cta-caption {letter-spacing:0;}
+  .date-block {margin:0;}
+  .portrait-composition {margin-top:33px;}
+  .portrait-date {width:76px;height:100px;}
+  .portrait-date>span {font-size:14px;}
+  .portrait-date strong {font-size:35px;}
+  .invitation-stamp {width:72px;height:72px;left:-3px;}
+  .invitation-stamp svg {width:36px;height:36px;}
+  .portrait-quote {padding:16px;gap:12px;}
+  .portrait-quote p {font-size:21px;}
+  .portrait-caption {font-size:var(--note-size);letter-spacing:.3px;}
+  .chapter-footnote {letter-spacing:.5px;padding-top:18px;}
+  .site-footer {gap:13px;padding:25px 22px;}
+  .room-heading h1 {font-size:28px;line-height:1.6;}
+  .room-heading>p {font-size:14px;line-height:1.9;}
+  .birthday-room {height:720px;}
+  .room-arch {height:328px;}
+  .room-dialogue {top:318px;width:auto;padding:15px 16px;background:#fffafcf2;border-color:#e3cde0;}
+  .room-dialogue p {font-size:var(--copy-size);line-height:1.85;min-height:60px;margin-top:6px;}
+  .birthday-table {height:196px;}
+  .room-object {bottom:101px;}
+  .object-tag {
+    display:grid;grid-template-columns:minmax(0,1fr) 18px;
+    width:100%;min-width:0;min-height:60px;padding:10px 5px;gap:4px;
+    border-radius:9px;bottom:-70px;font-size:var(--note-size);white-space:normal;
+  }
+  .object-name {line-height:1.5;overflow-wrap:anywhere;}
+  .object-index {display:none;}
+  .object-plus {width:18px;height:18px;font-size:16px;}
+  .room-curtain {opacity:.35;}
+  .room-spark {width:15px;height:27px;}
+  .room-spark.rs-two {width:12px;height:22px;}
+  .room-bottom {gap:20px;}
+  .ritual-progress {flex-direction:column;align-items:center;gap:12px;}
+  .ritual-steps {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;width:100%;}
+  .ritual-step {justify-content:center;padding:11px 5px;gap:6px;white-space:nowrap;min-width:0;}
+  .ritual-step-status {min-width:14px;}
+  .letter-trigger {min-height:64px;padding:12px 17px;gap:13px;}
+  .letter-button-mark {width:36px;height:36px;}
+  .letter-button-mark svg {width:27px;height:27px;}
+  .letter-paper {padding:53px 25px 29px;}
+  .letter-paper-top svg {width:40px;height:40px;}
+  .letter-paper-top {gap:9px;}
+  .letter-paper h1 {font-size:28px;}
+  .letter-body .letter-emphasis {font-size:22px;}
+  .letter-signature strong {font-size:25px;}
+  .letter-signature small {letter-spacing:.4px;}
+  .letter-actions {gap:16px;}
+  .letter-actions .button {padding:0 17px;}
+  .saved-wish {padding:15px 13px;}
+  .activity-dialog {padding:29px 23px 27px;}
+  .activity-dialog h2 {font-size:27px;}
+  .dialog-signet {width:42px;height:42px;margin-bottom:12px;}
+  .dialog-signet svg {width:39px;height:39px;}
+  .flower-choices {grid-template-columns:1fr;gap:11px;margin:23px 0;}
+  .flower-choice {display:grid;grid-template-columns:50px minmax(0,1fr);gap:2px 15px;padding:13px 15px;text-align:left;}
+  .flower-swatch {grid-row:1 / span 2;width:50px;height:50px;margin:0;}
+  .flower-swatch>svg {width:34px;height:34px;}
+  .flower-choice>strong {align-self:end;font-size:15px;}
+  .flower-choice>small {align-self:start;margin:0;}
+  .card-details h2 {font-size:27px;}
+  .card-details>p:not(.eyebrow) {margin-bottom:20px;}
+  .credits-dialog {padding:36px 25px 30px;}
+  .credits-dialog h2 {font-size:26px;}
+  .toast {font-size:var(--note-size);padding:12px 17px;}
+}
+@media(max-width:365px) {
+  .site-header {padding-left:19px;padding-right:19px;}
+  .chapter-nav {left:19px;right:19px;}
+  .portrait-quote>svg {display:none;}
+  .portrait-quote p {font-size:20px;}
+  .room-heading h1 {font-size:27px;}
+  .letter-trigger {gap:11px;padding-left:15px;padding-right:15px;}
+  .letter-paper {padding-left:21px;padding-right:21px;}
+  .letter-actions {gap:12px;}
+  .letter-actions .button {padding:0 14px;}
+  .flower-choice {padding:13px 12px;gap:2px 12px;}
+}
+/* English uses natural spacing and wrapping within the same page composition. */
+html:lang(en) {--serif:Georgia,"Times New Roman",serif;--sans:"Segoe UI",Arial,sans-serif;}
+html:lang(en) .occasion {letter-spacing:.7px;}
+html:lang(en) .invitation-copy h1 {font-size:clamp(36px,4.1vw,55px);line-height:1.3;letter-spacing:-.8px;}
+html:lang(en) .intro,html:lang(en) .letter-body,html:lang(en) .button {letter-spacing:0;}
+html:lang(en) .room-heading h1 {font-size:clamp(27px,2.5vw,34px);letter-spacing:-.5px;}
+html:lang(en) .room-dialogue p {font-size:18px;line-height:1.65;}
+html:lang(en) .portrait-quote p {font-size:clamp(17px,1.7vw,22px);letter-spacing:0;}
+html:lang(en) .room-object .object-name {overflow-wrap:anywhere;}
+html:lang(en) .letter-body {line-height:1.85;}
+html:lang(en) .letter-body .letter-emphasis {font-size:22px;}
+html:lang(en) .card-details h2 {font-size:28px;letter-spacing:-.3px;}
+html:lang(en) .activity-dialog h2,html:lang(en) .credits-dialog h2 {letter-spacing:-.4px;}
+@media(min-width:641px) and (max-width:1050px) {
+  html:lang(en) .site-header {gap:18px;padding-left:32px;padding-right:32px;}
+  html:lang(en) .chapter-nav {gap:10px;}
+  html:lang(en) .chapter-nav>i {width:15px;}
+}
+@media(max-width:640px) {
+  html:lang(en) .occasion {font-size:13px;letter-spacing:.3px;}
+  html:lang(en) .ritual-step {gap:4px;font-size:12px;}
+  html:lang(en) .chapter {font-size:12px;}
+  html:lang(en) .room-dialogue p {font-size:15px;}
+  html:lang(en) .room-object .object-name {font-size:12px;line-height:1.45;}
+  html:lang(en) .portrait-quote p {font-size:18px;}
+}
+@media(prefers-reduced-motion:reduce) {
+  .elysia-light {display:none;}
+  .hero-portrait {transform:none;transition:none;}
+  .candle-flames path {animation:none!important;}
+  .view.is-active .portrait-frame,.view.is-active .room-arch,
+  .view.is-active .letter-art-arch,.view.is-active .scene-signet,
+  .view.is-active .room-foreground,
+  .site-header,.site-footer {view-transition-name:none;}
+  ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*) {animation:none!important;}
+}

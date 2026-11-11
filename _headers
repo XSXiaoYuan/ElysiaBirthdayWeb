@@ -1,0 +1,17 @@
+# Netlify / Cloudflare Pages 通用响应头配置（GitHub Pages 会忽略本文件，不影响使用）
+# 语法：URL 模式一行，缩进的 Header: value 若干行；以 # 开头为注释。
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=()
+
+# 入口页不缓存：改了 index.html 立即生效
+/index.html
+  Cache-Control: no-cache
+
+# 静态素材缓存一周。注意：替换素材时请同步 bump index.html 里的 ?v= 版本号，
+# 否则老访客会继续用缓存里的旧文件。
+/assets/*
+  Cache-Control: public, max-age=604800
